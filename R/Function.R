@@ -192,7 +192,7 @@ snp2hap <- function(pheno,grob,hapname='haplotype',cpus=1){
         DNAStringSet(.unlist.name(sapply(x,function(y)snp2fasta(y)))),BPPARAM=BPPARAM)
     seqname <- lapply(sequence,function(x)names(x))
     ### check the snp sequence length
-    cond <- names(which(unlist(lapply(sequence, function(x)max(width(x))>5))))
+    cond <- names(which(unlist(lapply(sequence, function(x)max(width(x))>1))))
     sequence <- sequence[cond]
     if(length(sequence) == 0){
         stop("Gene got fewer snp !")
